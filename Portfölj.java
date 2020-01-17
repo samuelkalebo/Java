@@ -17,7 +17,7 @@ public class Portfölj {
     public static final String BLUE = "\u001B[34m";
 
     public static void main(String[] args) throws IOException {
-        System.out.println("NORDEA");       
+        System.out.println("NORDEA");
         URL url1 = new URL("https://www.cnbc.com/quotes/?symbol=NDA-SE&qsearchterm=nordea");
         URLConnection urlConn = url1.openConnection();
         InputStreamReader inStream = new InputStreamReader(urlConn.getInputStream());
@@ -148,7 +148,7 @@ public class Portfölj {
         System.out.println(RED + "52 week Low: " + low2);
         System.out.println("Change today: " + change2 + " % ");
         System.out.println("------------------");
-    
+
         System.out.println("CYXONE");
         URL url3 = new URL("https://www.cnbc.com/quotes/?symbol=CYXO-SE&qsearchterm=cyxone");
         URLConnection urlConn3 = url3.openConnection();
@@ -161,7 +161,6 @@ public class Portfölj {
         String beta3 = "not found";
         String change3 = "not found";
         String line3 = br1.readLine();
-        
 
         while (line3 != null) {
             if (line3.contains("comments\":\"RIC")) {
@@ -215,5 +214,73 @@ public class Portfölj {
         System.out.println(BLUE + "52 week High: " + high3);
         System.out.println(RED + "52 week Low: " + low3);
         System.out.println("Change today: " + change3 + " % ");
+        System.out.println("------------------");
+
+        System.out.println("OMX30");
+        URL url4 = new URL("https://www.cnbc.com/quotes/?symbol=.OMXS30&qsearchterm=omx");
+        URLConnection urlConn4 = url4.openConnection();
+        InputStreamReader inStream4 = new InputStreamReader(urlConn4.getInputStream());
+        BufferedReader br2 = new BufferedReader(inStream4);
+
+        String low4 = "not found";
+        String high4 = "not found";
+        String price4 = "not found";
+        String beta4 = "not found";
+        String change4 = "not found";
+        String line4 = br2.readLine();
+
+        while (line4 != null) {
+            if (line4.contains("comments\":\"RIC")) {
+                int target = line4.indexOf("comments\":\"RIC");
+                int deci = line4.indexOf(".", target);
+                int start = deci;
+                while (line4.charAt(start) != '\"') {
+                    start--;
+                }
+                price4 = line4.substring(start + 1, deci + 3);
+            }
+            if (line4.contains("beta")) {
+                int target = line4.indexOf("beta");
+                int deci = line4.indexOf(".", target);
+                int start = deci;
+                while (line4.charAt(start) != '\"') {
+                    start--;
+                }
+                beta4 = line4.substring(start + 1, deci + 5);
+            }
+            if (line4.contains("yrhiprice")) {
+                int target = line4.indexOf("yrhiprice");
+                int deci = line4.indexOf(".", target);
+                int start = deci;
+                while (line4.charAt(start) != '\"') {
+                    start--;
+                }
+                high4 = line4.substring(start + 1, deci + 2);
+            }
+            if (line4.contains("yrloprice")) {
+                int target = line4.indexOf("yrloprice");
+                int deci = line4.indexOf(".", target);
+                int start = deci;
+                while (line4.charAt(start) != '\"') {
+                    start--;
+                }
+                low4 = line4.substring(start + 1, deci + 2);
+            }
+            if (line4.contains("change_pct\":\"")) {
+                int target = line4.indexOf("change_pct\":\"");
+                int deci = line4.indexOf(".", target);
+                int start = deci;
+                while (line4.charAt(start) != '\"') {
+                    start--;
+                }
+                change4 = line4.substring(start + 1, deci + 3);
+            }
+            line4 = br2.readLine();
+        }
+        System.out.println("Stock price : " + price4);
+        System.out.println(BLUE + "52 week High: " + high4);
+        System.out.println(RED + "52 week Low: " + low4);
+        System.out.println("Change today: " + change4 + " % ");
+
     }
 }
