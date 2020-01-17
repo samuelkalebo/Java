@@ -277,7 +277,7 @@ public class Portfölj {
             }
             line4 = br2.readLine();
         }
-        System.out.println("Stock price : " + price4);
+        System.out.println("Price : " + price4);
         System.out.println(BLUE + "52 week High: " + high4);
         System.out.println(RED + "52 week Low: " + low4);
         System.out.println("Change today: " + change4 + " % ");
