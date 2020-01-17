@@ -1,4 +1,3 @@
-
 package portfölj;
 
 import java.io.BufferedReader;
@@ -77,8 +76,8 @@ public class Portfölj {
             line = buff.readLine();
         }
         System.out.println("Stock price : " + price);
-        System.out.println(BLUE + "52 week High: " + high);
-        System.out.println(RED + "52 week Low: " + low);
+        System.out.println(BLUE + "High this Year: " + high);
+        System.out.println(RED + "Low this Year: " + low);
         System.out.println("Change today: " + change + " % ");
         System.out.println("------------------");
 
@@ -144,8 +143,8 @@ public class Portfölj {
             line2 = br.readLine();
         }
         System.out.println("Stock price: " + price2);
-        System.out.println(BLUE + "52 week High: " + high2);
-        System.out.println(RED + "52 week Low: " + low2);
+        System.out.println(BLUE + "High this Year: " + high2);
+        System.out.println(RED + "Low this Year: " + low2);
         System.out.println("Change today: " + change2 + " % ");
         System.out.println("------------------");
 
@@ -211,8 +210,8 @@ public class Portfölj {
             line3 = br1.readLine();
         }
         System.out.println("Stock price : " + price3);
-        System.out.println(BLUE + "52 week High: " + high3);
-        System.out.println(RED + "52 week Low: " + low3);
+        System.out.println(BLUE + "High this Year: " + high3);
+        System.out.println(RED + "Low this Year: " + low3);
         System.out.println("Change today: " + change3 + " % ");
         System.out.println("------------------");
 
@@ -278,9 +277,10 @@ public class Portfölj {
             line4 = br2.readLine();
         }
         System.out.println("Price : " + price4);
-        System.out.println(BLUE + "52 week High: " + high4);
-        System.out.println(RED + "52 week Low: " + low4);
+        System.out.println(BLUE + "High this Year: " + high4);
+        System.out.println(RED + "Low this Year: " + low4);
         System.out.println("Change today: " + change4 + " % ");
 
     }
 }
+
